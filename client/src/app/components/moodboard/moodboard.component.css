@@ -1,0 +1,29 @@
+/* MoodBoard Grid*/
+.moodboard {
+    max-width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.moodboard .moodboard-caption {
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #fff;
+}
+
+.moodboard .moodboard-caption-heading {
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: black;
+}
+
+.moodboard .moodboard-caption-subheading {
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 0.95rem;
+}
+
+P {
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 0.85rem;
+}

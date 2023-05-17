@@ -4,10 +4,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LookbookComponent } from './components/lookbook/lookbook.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LookbookComponent
   ],
   imports: [
     BrowserModule,

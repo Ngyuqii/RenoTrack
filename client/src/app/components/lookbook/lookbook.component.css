@@ -1,0 +1,64 @@
+/* LookBook Grid*/
+.lookbook {
+  max-width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+  
+.lookbook .lookbook-link {
+  position: relative;
+  display: block;
+  margin: auto;
+}
+  
+.lookbook .lookbook-link .lookbook-hover {
+  background: rgba(255, 200, 0, 0.9);
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+.lookbook .lookbook-link:hover .lookbook-hover {
+  opacity: 1;
+}
+
+.lookbook .lookbook-link .lookbook-hover .lookbook-hover-content {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 6rem;
+  color: white;
+}
+
+/* LookBook Modals */
+.portfolio-modal .modal-dialog {
+  margin: 4rem;
+  max-width: 100vw;
+}
+
+.portfolio-modal .modal-content {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  text-align: center;
+}
+
+.portfolio-modal .modal-content img {
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+} 
+
+.portfolio-modal .close-modal {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.portfolio-modal .close-modal:hover {
+  opacity: 0.3;
+}

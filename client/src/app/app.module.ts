@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LookbookComponent } from './components/lookbook/lookbook.component';
 import { MoodboardComponent } from './components/moodboard/moodboard.component';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LookbookComponent,
-    MoodboardComponent
+    MoodboardComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

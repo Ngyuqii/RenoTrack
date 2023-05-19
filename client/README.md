@@ -1,27 +1,20 @@
-# Client
+### API Call and Response
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. GET Unsplash
+URL = "http://localhost:8080/api/unsplash?query=livingroom"
+```
+[
+    {
+        "imageUrl": "https://images.unsplash.com/photo-1612965607446-25e1332775ae?ixid=M3w0NDg2NDV8MHwxfHNlYXJjaHwxfHxsaXZpbmdyb29tfGVufDB8fHx8MTY4NDQzNDM2MXww&ixlib=rb-4.0.3",
+        "imageDes": "black flat screen tv turned off"
+    },
+    {
+        "imageUrl": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixid=M3w0NDg2NDV8MHwxfHNlYXJjaHwyfHxsaXZpbmdyb29tfGVufDB8fHx8MTY4NDQzNDM2MXww&ixlib=rb-4.0.3",
+        "imageDes": "a living room filled with furniture and a large window"
+    },
+    {
+        "imageUrl": "https://images.unsplash.com/photo-1633110187937-6e3b2f36dfca?ixid=M3w0NDg2NDV8MHwxfHNlYXJjaHwzfHxsaXZpbmdyb29tfGVufDB8fHx8MTY4NDQzNDM2MXww&ixlib=rb-4.0.3",
+        "imageDes": "a living room with a couch a table and chairs"
+    }
+]
+```

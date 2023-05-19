@@ -1,0 +1,16 @@
+/* Unsplash Search */
+.unsplash {
+    background-image: url("src/assets/Images/Unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    padding-top: 15rem;
+    padding-bottom: 15rem;
+    color: #fff;
+    
+}
+  
+.unsplash-form {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+}

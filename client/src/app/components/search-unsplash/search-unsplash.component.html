@@ -1,0 +1,11 @@
+<div class="unsplash">
+    <div class="unsplash-form d-flex justify-content-center">
+        <form [formGroup]="form" (ngSubmit)="searchImages()" class="w-50">
+            <h4>Inspire Me</h4>
+            <div class="input-group">
+                <input type="text" formControlName="search" placeholder="E.g Interior Design, Living Room" class="form-control">
+                <button type="submit" [disabled]="invalidEntry()" class="btn btn-warning">Search</button>
+            </div>
+        </form>
+    </div>
+</div>

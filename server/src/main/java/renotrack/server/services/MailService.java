@@ -19,6 +19,7 @@ public class MailService {
     <h1>Hi user!</h1>
     <p>Welcome to Renotrack. We are glad to be a part of your renovation journey.
     <br>Get started with the following features.</p><br>
+    <img src="https://zameenblog.s3.amazonaws.com/blog/wp-content/uploads/2015/01/How-to-renovate-a-bathroom-Cover-13-03.jpg" width=450px>
     <div>
         <p><b>Photo Journal</b>
         <br>Upload photos of your renovation progress here. Your photo journal serves as a visual documentation of your renovation progress and experiences, capturing moments and memories through photographs.</p>
@@ -27,7 +28,7 @@ public class MailService {
         <p><b>Expense Tracker</b>
         <br>Keep track of your renovation expenses. Monitor how much money you are spending and where it is being allocated, so that you may make necessary adjustments to stay within your budget.</br>
     </div><br>
-    <p>Happy Building!</p>
+    <h2>Happy Building!</h2>
     <p>Regards
     <br>Renotrack Team</p>
     """;

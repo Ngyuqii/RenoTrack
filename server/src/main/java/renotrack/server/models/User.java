@@ -3,6 +3,8 @@ package renotrack.server.models;
 import java.io.Reader;
 import java.io.StringReader;
 
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
@@ -52,5 +54,36 @@ public class User {
         JsonReader jsonReader = Json.createReader(reader);
         return jsonReader.readObject();
     }
+
+    //Create User Object from JsonObject
+    public static User createUser(JsonObject json) {
+        User u = new User();
+        u.setUserId(getValue(json, "userId"));
+        u.setUserName(getValue(json, "userName"));
+        u.setUserEmail(json.getString("userEmail"));
+        u.setUserPassword(json.getString("userPassword"));
+        return u;
+    }
+
+    //Method to get value of key in json object if not null
+    //Else return NA
+    private static String getValue(JsonObject json, String k) {
+        if (json.containsKey(k) && !json.isNull(k)) {
+            return json.getString(k);
+        }
+        else {
+            return "NA";
+        }      
+    }
+
+    //Create User Object from RowSet Object
+    public static User createUserFromRowSet(SqlRowSet rs) {
+        User u = new User();
+        u.setUserId(rs.getString("user_id"));
+        u.setUserName(rs.getString("user_name"));
+        u.setUserEmail(rs.getString("user_email"));
+        u.setUserPassword(rs.getString("user_password"));
+        return u;
+    }   
 
 }

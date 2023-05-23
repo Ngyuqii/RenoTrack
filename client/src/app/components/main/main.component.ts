@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AlertService } from 'src/app/services/alert.service';
+import { AuthService } from 'src/app/services/auth.service'; 
 
 @Component({
   selector: 'app-main',
@@ -6,6 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 
-export class MainComponent {
+export class MainComponent implements OnInit {
+
+  message: string = '';
+
+  constructor(public authService: AuthService, private alertService: AlertService) { }
+
+  ngOnInit() {
+    this.alertService.message.subscribe((message) => {
+      this.message = message;
+    });
+  }
+
+  logout() {
+    this.authService.logoutUser();
+  }
 
 }

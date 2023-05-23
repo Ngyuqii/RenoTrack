@@ -13,16 +13,20 @@ import { SearchUnsplashComponent } from './components/search-unsplash/search-uns
 import { DisplayUnsplashComponent } from './components/display-unsplash/display-unsplash.component';
 import { GoogleMapsService } from './services/google-maps.service';
 import { MainComponent } from './components/main/main.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MainComponent,
     LookbookComponent,
-    MoodboardComponent,
-    MapComponent,
     SearchUnsplashComponent,
     DisplayUnsplashComponent,
-    MainComponent
+    MoodboardComponent,
+    MapComponent,
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

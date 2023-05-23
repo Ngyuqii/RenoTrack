@@ -33,6 +33,7 @@ public class UnsplashService {
 
 		String apiUrl = UriComponentsBuilder.fromUriString(UNSPLASH_API)
                 .queryParam("query", query)
+				.queryParam("per_page", 24)
                 .queryParam("client_id", unsplashKey)
                 .toUriString();
 

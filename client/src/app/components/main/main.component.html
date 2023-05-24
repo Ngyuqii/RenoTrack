@@ -27,14 +27,43 @@
     <div class="container">
         <div class="masthead-subheading">RenoTrack</div>
         <div class="masthead-heading">Journal Your Renovation</div>
-        <button type="button" class="btn btn-warning text-uppercase" data-bs-toggle="modal" href="#registerModal">Register</button>
-        &nbsp;&nbsp;
-        <button type="button" class="btn btn-warning text-uppercase" data-bs-toggle="modal" href="#loginModal">LogIn</button>
+        <div *ngIf="!authService.isAuthenticated()">
+            <button type="button" class="btn btn-warning text-uppercase" (click)="clearData()" data-bs-toggle="modal" 
+                href="#registerModal1">Register</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-warning text-uppercase" (click)="clearData()"data-bs-toggle="modal" 
+                href="#loginModal">Login</button>
+        </div>
     </div>
 </header>
 
-<!-- Register Modal -->
-<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- Register Modal 1-->
+<div class="modal fade" id="registerModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-black">
+            <img src="assets/Images/RenoTrack_Logo.jpg" alt="Logo" width="70%"/>
+        </div>
+        <div class="modal-body">
+            <div *ngIf="!isEmailEntered()">
+                <app-verify-email></app-verify-email>
+            </div>
+          <div *ngIf="isEmailEntered()">
+            <form (ngSubmit)="matchCode()">
+                <input type="text" [(ngModel)]="enteredCode" name="enteredCode" placeholder="OTP">
+                <button type="submit">Submit</button>
+            </form>
+          </div>
+          <div class="alert" [ngClass]="{'alert-primary': message, 'alert-light': !message}">
+            <span>{{ message }}</span></div>
+            <a *ngIf="!isCodeMatch()" data-bs-toggle="modal" href="#loginModal"><b>Have an account? Login!</b></a>
+            <a *ngIf="isCodeMatch()" data-bs-toggle="modal" href="#registerModal2"><b>Continue Registration</b></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Register Modal 2 (Email Verified) -->
+<div class="modal fade" id="registerModal2" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header bg-black">
@@ -44,7 +73,6 @@
           <app-register></app-register>
           <div class="alert" [ngClass]="{'alert-primary': message, 'alert-light': !message}">
             <span>{{ message }}</span></div>
-            <a data-bs-toggle="modal" href="#loginModal"><b>Have an account? Login!</b></a>
         </div>
       </div>
     </div>
@@ -61,7 +89,7 @@
           <app-login></app-login>
           <div class="alert" [ngClass]="{'alert-primary': message, 'alert-light': !message}">
             <span>{{ message }}</span></div>
-            <a data-bs-toggle="modal" href="#registerModal"><b>New user? Register an account!</b></a>
+            <a *ngIf="!authService.isAuthenticated()" data-bs-toggle="modal" href="#registerModal1"><b>New user? Register an account!</b></a>
         </div>
       </div>
     </div>

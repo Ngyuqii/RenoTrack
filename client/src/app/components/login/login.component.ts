@@ -28,20 +28,13 @@ export class LoginComponent implements OnInit {
     return ctrl.invalid && (!ctrl.pristine);
   }
 
-  //Search button disabled if validators not met
-  invalidEntry(): boolean {
-    return this.loginForm.invalid;
-  }
-
   //Send the form values as user to login a user account
-  //Form data is cleared after 8s
+  //Form data is cleared after 15s
   login() {
-    if (this.loginForm.valid) {
-      this.authService.loginUser(this.loginForm.value);
-      setTimeout(() => {
-        this.loginForm.reset();
-      }, 8000);
-    }
+    this.authService.loginUser(this.loginForm.value);
+    setTimeout(() => {
+      this.loginForm.reset();
+    }, 15000);
   }
 
 }

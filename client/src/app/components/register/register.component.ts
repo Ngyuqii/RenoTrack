@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
 
   registerForm!: FormGroup;
@@ -15,9 +16,11 @@ export class RegisterComponent implements OnInit {
 
   //Initialize a FormGroup with validation
   ngOnInit() {
+    let email = localStorage.getItem("userEmail");
+
     this.registerForm = new FormGroup({
       userName: new FormControl('', [ Validators.required, Validators.minLength(2) ]),
-      userEmail: new FormControl('', [ Validators.required, Validators.email ]),
+      userEmail: new FormControl(email),
       userPassword: new FormControl('', [ Validators.required, Validators.minLength(8) ]),
       confirmPassword: new FormControl('', [ Validators.required, Validators.minLength(8) ])
     });
@@ -33,7 +36,7 @@ export class RegisterComponent implements OnInit {
   unmatchedPW(): boolean {
     const passA = this.registerForm.value.userPassword;
     const passB = this.registerForm.value.confirmPassword;
-    return passA.trim().length > 0 && passB.trim().length > 0 && passA != passB;  
+    return passA != passB;  
   }
 
   //Search button disabled if validators not met or the 2 passwords do not match
@@ -42,14 +45,12 @@ export class RegisterComponent implements OnInit {
   }
 
   //Send the form values as user to register a user account
-  //Form data is cleared after 8s
+  //Form data is cleared after 15s
   register() {
-    if (this.registerForm.valid) {
-      this.authService.registerUser(this.registerForm.value);
-      setTimeout(() => {
-        this.registerForm.reset();
-      }, 8000);
-    }
+    this.authService.registerUser(this.registerForm.value);
+    setTimeout(() => {
+      this.registerForm.reset();
+    }, 15000);
   }
 
 }

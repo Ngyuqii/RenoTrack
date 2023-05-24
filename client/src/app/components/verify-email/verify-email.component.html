@@ -1,0 +1,8 @@
+<h2>Register</h2>
+
+<form [formGroup]="emailForm" (ngSubmit)="submitEmail()">
+  <input type="email" placeholder="Email" formControlName="userEmail">
+  <button type="submit" [disabled]="emailForm.invalid">Register</button>
+  <div class="error" *ngIf="invalidControl('userEmail')">
+    Invalid Email</div>
+</form>

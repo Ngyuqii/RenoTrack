@@ -14,9 +14,21 @@ public class MailService {
     @Autowired
     private JavaMailSender emailSender;
 
-    //Set up email template
-    private final String emailSubject = "Welcome to Renotrack";
-    private final String emailContent = """
+    //Set up email template 1 - Email Verification
+    private final String emailSubject1 = "Email Verification - Renotrack";
+    private final String emailContent1 = """
+    <h1>Hi!</h1>
+    <p>Welcome to Renotrack. You are 1 step away from completing your registration.
+    <br>Please use the OTP below to verify your email address.</p><br>
+    <h2>code</h2>
+    <p>Your OTP is valid for 3min</p><br>
+    <p>Regards
+    <br>Renotrack Team</p>
+    """;
+
+    //Set up email template 2 - Account Registered
+    private final String emailSubject2 = "Welcome to Renotrack";
+    private final String emailContent2 = """
     <h1>Hi user!</h1>
     <p>Welcome to Renotrack. We are glad to be a part of your renovation journey.
     <br>Get started with the following features.</p><br>
@@ -34,17 +46,36 @@ public class MailService {
     <br>Renotrack Team</p>
     """;
 
-    //Method to send email to user using emailSender
-    public void sendEmail(String userEmail, String userName) {
+    //Method to send verification code email to user using emailSender
+    public void sendVerEmail(String userEmail, String verificationCode) {
         try {
             MimeMessage message = emailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, false, "utf-8");
             
             helper.setTo(userEmail);
-            helper.setSubject(emailSubject);
+            helper.setSubject(emailSubject1);
+            // replace 'code' placeholder with verificationCode
+            String personalizedEmail1 = emailContent1.replace("code", verificationCode);
+            message.setContent(personalizedEmail1, "text/html");
+
+            emailSender.send(message);
+        }
+        catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Method to send email to registered user using emailSender
+    public void sendRegEmail(String userEmail, String userName) {
+        try {
+            MimeMessage message = emailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, false, "utf-8");
+            
+            helper.setTo(userEmail);
+            helper.setSubject(emailSubject2);
             // replace 'user' placeholder with userName
-            String personalizedEmail = emailContent.replace("user", userName);
-            message.setContent(personalizedEmail, "text/html");
+            String personalizedEmail2 = emailContent2.replace("user", userName);
+            message.setContent(personalizedEmail2, "text/html");
 
             emailSender.send(message);
         }

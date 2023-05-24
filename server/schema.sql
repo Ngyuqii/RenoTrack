@@ -4,7 +4,8 @@ CREATE DATABASE renotrack;
 -- Use database
 USE renotrack;
 
--- Create a table
+-- Users Table
+-- 1.1 Create a table
 CREATE TABLE users (
     user_id varchar(50) NOT NULL,
     user_name varchar(50) NOT NULL,
@@ -13,9 +14,9 @@ CREATE TABLE users (
 	CONSTRAINT pkid PRIMARY KEY(user_id)
 );
 
--- Retrieve data from table
+-- 1.2 Retrieve data from table
 SELECT * FROM users WHERE user_email = ?;
 SELECT user_password FROM users WHERE user_email = ?;
 
--- Insert data into table
+-- 1.3  Insert data into table
 INSERT INTO users (user_id, user_name, user_email, user_password) VALUES (?, ?, ?, ?);

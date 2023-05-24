@@ -18,9 +18,24 @@ public class UserService {
     @Autowired
     private MailService mailSvc;
 
-    //Method to register new user if not already existing
-    //1. Set userId and insert new user record in database
-    //2. Send email to new user
+    //Method to verify new user email if not already existing
+    //1. Generate a random 6 character verificationCode
+    //2. Send email with verification code to new user
+    public String verifyEmail(String userEmail) {
+        User registeredUser = userRepo.findUserByEmail(userEmail);
+        if(registeredUser != null) {
+            return "Email already exists";
+        }
+        else {
+            String verificationCode = UUID.randomUUID().toString().substring(0, 6);
+            mailSvc.sendVerEmail(userEmail, verificationCode);
+            return verificationCode;
+        }
+    }
+
+    //Method to register new user if not already exisiting
+    //1. Generate userId and insert new user record in database
+    //2. Send successful registration email to new user
     public String registerUser(User user) {
         User registeredUser = userRepo.findUserByEmail(user.getUserEmail());
         if(registeredUser != null) {
@@ -30,7 +45,7 @@ public class UserService {
             String newUserId = UUID.randomUUID().toString().substring(0, 8);
             user.setUserId(newUserId);
             userRepo.registerUser(user);
-            mailSvc.sendEmail(user.getUserEmail(), user.getUserName());
+            mailSvc.sendRegEmail(user.getUserEmail(), user.getUserName());
             return "New account has been registered";
         }
     }

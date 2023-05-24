@@ -23,6 +23,24 @@ public class AuthController {
     @Autowired
     private UserService userSvc;
 
+    //Email verification
+    @PostMapping(path="/verify")
+    public ResponseEntity<String> emailVerification(@RequestBody String email) {
+        
+        System.out.printf(">>>User email: %s /n", email);
+
+        try {
+            String code = userSvc.verifyEmail(email);
+            JsonObject response = Json.createObjectBuilder()
+            .add("Msg", code)
+            .build();
+            return ResponseEntity.ok(response.toString());
+        }
+        catch (Exception e){
+            return ResponseEntity.ok(e.toString());
+        }
+    }
+
     //User registration
     @PostMapping(path="/register", consumes=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> userRegistration(@RequestBody String user) {
@@ -64,5 +82,5 @@ public class AuthController {
             return ResponseEntity.ok(e.toString());
         }
     }
-   
+  
 }

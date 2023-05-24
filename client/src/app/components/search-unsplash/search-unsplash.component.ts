@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 
 export class SearchUnsplashComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private router: Router) {}
-
   form!: FormGroup;
+  
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   //Initialize a FormGroup with validation
   ngOnInit(): void {

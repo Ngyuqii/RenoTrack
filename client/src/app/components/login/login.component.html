@@ -3,6 +3,10 @@
 <form [formGroup]="loginForm" (ngSubmit)="login()">
   <input type="email" placeholder="Email" formControlName="userEmail">
   <input type="password" placeholder="Password" formControlName="userPassword">
+  <button type="submit" [disabled]="invalidEntry()">Login</button>
 
-  <button type="submit">Login</button>
+  <div class="error" *ngIf="invalidControl('userEmail')">
+    Invalid email</div>
+  <div class="error" *ngIf="invalidControl('userPassword')">
+    Password must be min 8 characters</div>
 </form>

@@ -5,5 +5,14 @@
   <input type="email" placeholder="Email" formControlName="userEmail">
   <input type="password" placeholder="Password" formControlName="userPassword">
   <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
-  <button [disabled]="invalidEntry()" type="submit">Register</button>
+  <button type="submit" [disabled]="invalidEntry()">Register</button>
+
+  <div class="error" *ngIf="invalidControl('userName')">
+    Name must be min 2 characters</div>
+  <div class="error" *ngIf="invalidControl('userEmail')">
+    Invalid email</div>
+  <div class="error" *ngIf="invalidControl('userPassword')">
+    Password must be min 8 characters</div>
+  <div class="error" *ngIf="unmatchedPW()">
+    Passwords do not match</div>
 </form>

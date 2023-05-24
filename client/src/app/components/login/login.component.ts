@@ -14,19 +14,33 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
 
+  //Initialize a FormGroup with validation
   ngOnInit() {
     this.loginForm = new FormGroup({
-      userEmail: new FormControl('', [Validators.required, Validators.email]),
-      userPassword: new FormControl('', Validators.required)
+      userEmail: new FormControl('', [ Validators.required, Validators.email ]),
+      userPassword: new FormControl('', [ Validators.required, Validators.minLength(8) ])
     });
   }
 
+  //Method that returns true if form input is not pristine and invalid
+  invalidControl (ctrlName: string): boolean {
+    const ctrl = this.loginForm.get(ctrlName) as FormControl;
+    return ctrl.invalid && (!ctrl.pristine);
+  }
+
+  //Search button disabled if validators not met
+  invalidEntry(): boolean {
+    return this.loginForm.invalid;
+  }
+
+  //Send the form values as user to login a user account
+  //Form data is cleared after 8s
   login() {
     if (this.loginForm.valid) {
       this.authService.loginUser(this.loginForm.value);
       setTimeout(() => {
         this.loginForm.reset();
-      }, 3000);
+      }, 8000);
     }
   }
 

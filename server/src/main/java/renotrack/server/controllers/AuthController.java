@@ -44,7 +44,7 @@ public class AuthController {
         }
     }
 
-    //User log in
+    //User login
     @PostMapping(path="/login", consumes=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> userLogin(@RequestBody String user) {
         

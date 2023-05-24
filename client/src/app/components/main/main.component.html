@@ -7,14 +7,16 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">Menu</button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
-                <li><a class="nav-link" href="#features">Features</a></li>
-                <li><a class="nav-link" href="#lookbook">LookBook</a></li>
-                <li><a class="nav-link" href="#unsplash">Unsplash</a></li>
-                <li><a class="nav-link" href="#moodboard">MoodBoard</a></li>
+                <li *ngIf="!authService.isAuthenticated()"><a class="nav-link" href="#features">Features</a></li>
+                <li *ngIf="!authService.isAuthenticated()"><a class="nav-link" href="#lookbook">LookBook</a></li>
+                <li *ngIf="!authService.isAuthenticated()"><a class="nav-link" href="#unsplash">Unsplash</a></li>
+                <li *ngIf="!authService.isAuthenticated()"><a class="nav-link" href="#moodboard">MoodBoard</a></li>
+                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#lookbook">Inspiration</a></li>
+                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#" (click)="logout()">Journal</a></li>
+                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#" (click)="logout()">Scheduler</a></li>
+                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#" (click)="logout()">Expenses</a></li>
                 <li><a class="nav-link" href="#contact">Contact</a></li>
-                <li *ngIf="authService.isAuthenticated()">
-                    <a class="nav-link" href="#" (click)="logout()">Logout</a>
-                  </li>
+                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#" (click)="logout()">Logout</a></li>
             </ul>
         </div>
     </div>
@@ -25,43 +27,41 @@
     <div class="container">
         <div class="masthead-subheading">RenoTrack</div>
         <div class="masthead-heading">Journal Your Renovation</div>
-        <!-- <a class="btn btn-warning text-uppercase" href="#services">Register</a> &nbsp;&nbsp;
-        <a class="btn btn-warning text-uppercase" href="#services">Sign In</a> -->
-        <button type="button" class="btn btn-warning text-uppercase" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+        <button type="button" class="btn btn-warning text-uppercase" data-bs-toggle="modal" href="#registerModal">Register</button>
         &nbsp;&nbsp;
-        <button type="button" class="btn btn-warning text-uppercase" data-bs-toggle="modal" data-bs-target="#loginModal">Sign In</button>
+        <button type="button" class="btn btn-warning text-uppercase" data-bs-toggle="modal" href="#loginModal">LogIn</button>
     </div>
 </header>
 
 <!-- Register Modal -->
-<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="registerModalLabel">Register</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-header bg-black">
+            <img src="assets/Images/RenoTrack_Logo.jpg" alt="Logo" width="70%"/>
         </div>
         <div class="modal-body">
           <app-register></app-register>
-          <div class="alert" [ngClass]="{'alert-success': message, 'alert-light': !message}">
+          <div class="alert" [ngClass]="{'alert-primary': message, 'alert-light': !message}">
             <span>{{ message }}</span></div>
+            <a data-bs-toggle="modal" href="#loginModal"><b>Have an account? Login!</b></a>
         </div>
       </div>
     </div>
   </div>
 
 <!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Sign In</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-header bg-black">
+            <img src="assets/Images/RenoTrack_Logo.jpg" alt="Logo" width="70%"/>
         </div>
         <div class="modal-body">
           <app-login></app-login>
-          <div class="alert" [ngClass]="{'alert-success': message, 'alert-light': !message}">
+          <div class="alert" [ngClass]="{'alert-primary': message, 'alert-light': !message}">
             <span>{{ message }}</span></div>
+            <a data-bs-toggle="modal" href="#registerModal"><b>New user? Register an account!</b></a>
         </div>
       </div>
     </div>

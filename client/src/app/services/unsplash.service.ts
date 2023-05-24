@@ -20,7 +20,7 @@ export class UnsplashService {
   //Returns a Promise of an array of object
   getUnsplashImages(search: string): Promise<Unsplash[]> {
 
-    console.info(`>>> Unsplash search: ${search}`);
+    console.info(`>>>Unsplash search: ${search}`);
 
     const params = new HttpParams()
         .set("query", search);

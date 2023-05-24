@@ -14,6 +14,7 @@ public class MailService {
     @Autowired
     private JavaMailSender emailSender;
 
+    //Set up email template
     private final String emailSubject = "Welcome to Renotrack";
     private final String emailContent = """
     <h1>Hi user!</h1>
@@ -33,6 +34,7 @@ public class MailService {
     <br>Renotrack Team</p>
     """;
 
+    //Method to send email to user using emailSender
     public void sendEmail(String userEmail, String userName) {
         try {
             MimeMessage message = emailSender.createMimeMessage();

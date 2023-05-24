@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 import { LookbookComponent } from './components/lookbook/lookbook.component';
 import { MoodboardComponent } from './components/moodboard/moodboard.component';
 import { MapComponent } from './components/map/map.component';
@@ -25,6 +26,7 @@ import { AlertService } from './services/alert.service';
   declarations: [
     AppComponent,
     MainComponent,
+    NavigationComponent,
     LookbookComponent,
     MoodboardComponent,
     MapComponent,

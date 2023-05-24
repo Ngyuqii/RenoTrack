@@ -15,6 +15,7 @@ export class MainComponent implements OnInit {
 
   constructor(public authService: AuthService, private alertService: AlertService) { }
 
+  //Subscribe to the message observable from the alertService
   ngOnInit() {
     this.alertService.message.subscribe((message) => {
       this.message = message;
@@ -51,10 +52,6 @@ export class MainComponent implements OnInit {
   clearData(){
     localStorage.removeItem("userEmail");
     localStorage.removeItem("code");
-  }
-
-  logout() {
-    this.authService.logoutUser();
   }
 
 }

@@ -8,11 +8,9 @@ export class GoogleMapsService {
   
   private promise!: Promise<void>;
 
+  //Method to load the Google Maps JavaScript API
   public load(): Promise<void> {
-    if (this.promise) {
-      return this.promise;
-    }
-
+    
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.async = true;

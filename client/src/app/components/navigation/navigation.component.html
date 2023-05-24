@@ -1,0 +1,21 @@
+<!-- Navigation Toolbar-->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="#page-top"><img src="assets/Images/RenoTrack_Logo.jpg" alt="Logo"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">Menu</button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li *ngIf="!authService.isAuthenticated()"><a class="nav-link" href="#features">Features</a></li>
+                <li *ngIf="!authService.isAuthenticated()"><a class="nav-link" href="#lookbook">LookBook</a></li>
+                <li *ngIf="!authService.isAuthenticated()"><a class="nav-link" href="#unsplash">Unsplash</a></li>
+                <li *ngIf="!authService.isAuthenticated()"><a class="nav-link" href="#moodboard">MoodBoard</a></li>
+                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#lookbook">Inspiration</a></li>
+                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#" (click)="logout()">Journal</a></li>
+                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#" (click)="logout()">Scheduler</a></li>
+                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#" (click)="logout()">Expenses</a></li>
+                <li><a class="nav-link" href="#contact">Contact</a></li>
+                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#" (click)="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

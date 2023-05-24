@@ -30,7 +30,7 @@ public class UnsplashController {
     public ResponseEntity<String> callAPI(@RequestParam String query) {
 
         //Check variable passed from client side
-        System.out.printf(">>>> Search Keyword: %s", query);
+        System.out.printf(">>>Search Keyword: %s", query);
         
         //Call on external API and return a list of Unsplash objects
         List<Unsplash> imagesRetrieved = unsplashSvc.searchUnsplash(query);

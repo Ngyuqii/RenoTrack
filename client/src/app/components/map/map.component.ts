@@ -14,12 +14,15 @@ export class MapComponent implements OnInit {
 
   constructor(private googleMapsService: GoogleMapsService) { }
 
+  //Initialize the Google Maps instance.
   ngOnInit(): void {
     this.googleMapsService.load().then(() => {
       this.mapInitializer();
     });
   }
 
+  //Set latitude and longitude coordinates
+  //Set maps zoom size
   mapInitializer(): void {
     const coordinates = new google.maps.LatLng(1.327343, 103.890665);
     const mapOptions: google.maps.MapOptions = {
@@ -29,6 +32,7 @@ export class MapComponent implements OnInit {
 
     this.map = new google.maps.Map(this.gmap.nativeElement, mapOptions);
 
+    //Marker details
     const marker = new google.maps.Marker({
       position: coordinates,
       map: this.map,

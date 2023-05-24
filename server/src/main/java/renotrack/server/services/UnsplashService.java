@@ -22,7 +22,7 @@ import renotrack.server.models.Unsplash;
 @Service
 public class UnsplashService {
 
-    //URL = "https://api.unsplash.com/search/photos?query=living%20room&client_id={API_KEY}"
+    //URL = "https://api.unsplash.com/search/photos?query=living%20room&per_page=24&client_id={API_KEY}"
 	public static final String UNSPLASH_API = "https://api.unsplash.com/search/photos";
     
 	@Value("${unsplashapi.key}")

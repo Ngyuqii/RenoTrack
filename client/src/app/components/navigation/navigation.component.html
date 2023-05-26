@@ -10,12 +10,14 @@
                 <li *ngIf="!authService.isAuthenticated()"><a class="nav-link" href="#unsplash">Unsplash</a></li>
                 <li *ngIf="!authService.isAuthenticated()"><a class="nav-link" href="#moodboard">MoodBoard</a></li>
                 <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#lookbook">Inspiration</a></li>
-                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#" (click)="logout()">Journal</a></li>
-                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#" (click)="logout()">Scheduler</a></li>
-                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#" (click)="logout()">Expenses</a></li>
+                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" (click)="logout()">Journal</a></li>
+                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" (click)="schedulerRoute()">Scheduler</a></li>
+                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" (click)="logout()">Expenses</a></li>
                 <li><a class="nav-link" href="#contact">Contact</a></li>
                 <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#" (click)="logout()">Logout</a></li>
             </ul>
         </div>
     </div>
 </nav>
+
+<router-outlet></router-outlet>

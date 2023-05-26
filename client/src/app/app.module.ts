@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
@@ -17,10 +18,13 @@ import { DisplayUnsplashComponent } from './components/display-unsplash/display-
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { SchedulerComponent } from './components/scheduler/scheduler.component';
 
 import { GoogleMapsService } from './services/google-maps.service';
 import { AuthService } from './services/auth.service';
 import { AlertService } from './services/alert.service';
+import { EventService } from './services/event.service';
+import { DayService, WeekService, MonthService, AgendaService } from '@syncfusion/ej2-angular-schedule';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,8 @@ import { AlertService } from './services/alert.service';
     DisplayUnsplashComponent,
     VerifyEmailComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    SchedulerComponent
   ],
   imports: [
     BrowserModule,
@@ -42,12 +47,19 @@ import { AlertService } from './services/alert.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ScheduleModule,
+    RecurrenceEditorModule
   ],
   providers: [
     GoogleMapsService,
     AuthService,
-    AlertService
+    AlertService,
+    EventService,
+    DayService,
+    WeekService,
+    MonthService,
+    AgendaService
   ],
   bootstrap: [AppComponent]
 })

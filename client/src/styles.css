@@ -1,3 +1,5 @@
+@import '../node_modules/@syncfusion/ej2-material-theme/styles/material.css';
+
 /* General Layout */
 body {
   position: relative;

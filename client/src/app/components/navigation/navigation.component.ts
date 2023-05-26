@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -9,7 +10,12 @@ import { AuthService } from 'src/app/services/auth.service';
 
 export class NavigationComponent {
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, private router:Router) { }
+
+  schedulerRoute(){
+    console.log(">>>Navigating.");
+    this.router.navigate(['/scheduler']);
+  }
 
   logout() {
     this.authService.logoutUser();

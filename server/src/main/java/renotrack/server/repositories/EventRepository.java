@@ -28,7 +28,7 @@ public class EventRepository {
         return events;
     }
     
-    //Method to insert events into database
+    //Method to insert event into database
     public int createEvent(String userId, Event event) {
         String sql = "INSERT INTO events (user_id, event_id, subject, start_time, end_time, description, location) VALUES (?, ?, ?, ?, ?, ?, ?)";
         return jdbcTemplate.update(sql, userId, event.getEventId(), event.getSubject(), event.getStartTime(), event.getEndTime(), event.getDescription(), event.getLocation());

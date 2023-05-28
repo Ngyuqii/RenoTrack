@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
@@ -29,7 +30,7 @@ import { AlertService } from './services/alert.service';
 import { EventService } from './services/event.service';
 import { DayService, WeekService, MonthService, AgendaService } from '@syncfusion/ej2-angular-schedule';
 import { ExpenseService } from './services/expense.service';
-import { ServiceWorkerModule } from '@angular/service-worker';
+
 
 @NgModule({
   declarations: [

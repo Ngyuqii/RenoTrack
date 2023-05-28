@@ -17,13 +17,13 @@ export class MapComponent implements OnInit {
   //Initialize the Google Maps instance.
   ngOnInit(): void {
     this.googleMapsService.load().then(() => {
-      this.mapInitializer();
+      this.initMap();
     });
   }
 
   //Set latitude and longitude coordinates
   //Set maps zoom size
-  mapInitializer(): void {
+  initMap(): void {
     const coordinates = new google.maps.LatLng(1.327343, 103.890665);
     const mapOptions: google.maps.MapOptions = {
       center: coordinates,

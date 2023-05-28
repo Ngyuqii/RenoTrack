@@ -3,9 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Expense } from '../models';
 
-const Expense_URL = 'http://localhost:8080/api/expenses'
-//Railway
-//const Expense_URL = "https://railway.app/api/expenses"
+//const Expense_URL = "/api/expenses"
+const Expense_URL = "http://localhost:8080/api/expenses"
 
 @Injectable({
   providedIn: 'root'

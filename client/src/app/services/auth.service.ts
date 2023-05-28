@@ -5,9 +5,8 @@ import { AlertService } from './alert.service';
 import { Router } from '@angular/router';
 import { User } from '../models';
 
+//const SB_URL = "/api";
 const SB_URL = "http://localhost:8080/api";
-//Railway
-//const SB_URL = "https://railway.app/api";
 
 @Injectable({
   providedIn: 'root'

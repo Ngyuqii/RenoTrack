@@ -11,13 +11,13 @@
     </div>
 </section>
 
-<section class="page-section bg-light">/
+<section class="page-section bg-light">
     <div class="container">
         <div class="container">
             <div class="row">
               <div class="col-md-6 d-flex flex-column justify-content-center">
-                <h2>Expense Summary</h2>
-                <table class="table table-striped">
+                <h2 class="text-center">Expense Summary</h2>
+                <table class="table table-striped border-table">
                   <tbody>
                     <tr>
                       <th><i class="fas fa-hand-holding-usd"></i> Total Amount</th>
@@ -34,10 +34,9 @@
                   </tbody>
                 </table>
               </div>
-          
               <div class="col-md-6 d-flex flex-column justify-content-center">
-                <h2>Category Summary</h2>
-                <table class="table table-striped">
+                <h2 class="text-center">Category Summary</h2>
+                <table class="table table-striped border-table">
                   <thead class="thead-dark">
                     <tr>
                       <th>Category</th>
@@ -54,7 +53,7 @@
               </div>
             </div>
           </div>
-</div>
+  </div>
 </section>
         
 <section class="page-section">
@@ -82,8 +81,12 @@
                     <td>{{ expense.description }}</td>
                     <td>{{ expense.amount }}</td>
                     <td>{{ expense.payment }}</td>
-                    <td>{{ expense.balance }}</td>
+                    <!-- <td>{{ expense.balance }}</td> -->
                     <td>
+                      <div *ngIf="expense.balance === 0">{{ expense.balance }}</div>
+                      <div *ngIf="expense.balance > 0" style="color: red;">{{ expense.balance }}</div>
+                    </td>
+                    <td>                    
                         <button type="button" class="btn btn-warning" (click)="onEditExpense(expense.expenseId)">Edit</button>
                         <button type="button" class="btn btn-danger" (click)="onDeleteExpense(expense.expenseId)">Delete</button>
                     </td>

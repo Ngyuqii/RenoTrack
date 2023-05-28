@@ -44,15 +44,15 @@ public class ExpenseRepository {
 
     //Method to insert expense into database
     public int insertExpense(String userId, Expense expense) {
-        String sql = "INSERT INTO expenses (user_id, date, category, description, amount, payment, balance) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        return jdbcTemplate.update(sql, userId, expense.getDate(), expense.getCategory(), 
+        String sql = "INSERT INTO expenses (user_id, date, category, business, description, amount, payment, balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        return jdbcTemplate.update(sql, userId, expense.getDate(), expense.getCategory(), expense.getBusiness(),
         expense.getDescription(), expense.getAmount(), expense.getPayment(), expense.getBalance());
     }
 
     //Method to update expense in database
-    public int updateExpense(String userId, int expenseId, Expense expense) {
-        String sql = "UPDATE expenses SET user_id = ?, date = ?, category = ?, description = ?, amount = ?, payment = ?, balance = ? WHERE expense_id = ?";
-        return jdbcTemplate.update(sql, userId, expense.getDate(), expense.getCategory(), 
+    public int updateExpense(int expenseId, Expense expense) {
+        String sql = "UPDATE expenses SET date = ?, category = ?, business = ?, description = ?, amount = ?, payment = ?, balance = ? WHERE expense_id = ?";
+        return jdbcTemplate.update(sql, expense.getDate(), expense.getCategory(), expense.getBusiness(), 
         expense.getDescription(), expense.getAmount(), expense.getPayment(), expense.getBalance(), expenseId);
     }
 

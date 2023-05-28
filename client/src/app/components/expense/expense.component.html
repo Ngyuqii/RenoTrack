@@ -1,0 +1,95 @@
+<!-- Navigation Toolbar -->
+<app-navigation></app-navigation>
+
+<!-- Expense Tracker -->
+<section class="page-section">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Expense Tracker</h2>
+            <h3 class="section-subheading text-muted">Plan your budget, track your expenses, and keep an account of outstanding payments.</h3>
+        </div>
+    </div>
+</section>
+
+<section class="page-section bg-light">/
+    <div class="container">
+        <div class="container">
+            <div class="row">
+              <div class="col-md-6 d-flex flex-column justify-content-center">
+                <h2>Expense Summary</h2>
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <th><i class="fas fa-hand-holding-usd"></i> Total Amount</th>
+                      <td>{{ totalAmount }}</td>
+                    </tr>
+                    <tr>
+                      <th><i class="fas fa-credit-card"></i> Total Payment</th>
+                      <td>{{ totalPayment }}</td>
+                    </tr>
+                    <tr>
+                      <th><i class="fas fa-balance-scale"></i> Total Balance</th>
+                      <td>{{ totalBalance }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          
+              <div class="col-md-6 d-flex flex-column justify-content-center">
+                <h2>Category Summary</h2>
+                <table class="table table-striped">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th>Category</th>
+                      <th>Sum</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let categorySum of categorySummaries">
+                      <td>{{ categorySum.category }}</td>
+                      <td>{{ categorySum.sum }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+</div>
+</section>
+        
+<section class="page-section">
+    <div class="container">
+        <div class="text-center">
+        <h2>Expense Details  <button class="btn btn-primary" (click)="onAddExpense()"><i class="fas fa-plus"></i> Add Expense</button></h2>
+        <table class="table table-striped table-hover border-table">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="category-divider">Category</th>
+                    <th>Date</th>
+                    <th>Business</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Payment</th>
+                    <th>Balance</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let expense of expenses">
+                    <td class="category-divider">{{ expense.category }}</td>
+                    <td>{{ expense.date }}</td>
+                    <td>{{ expense.business }}</td>
+                    <td>{{ expense.description }}</td>
+                    <td>{{ expense.amount }}</td>
+                    <td>{{ expense.payment }}</td>
+                    <td>{{ expense.balance }}</td>
+                    <td>
+                        <button type="button" class="btn btn-warning" (click)="onEditExpense(expense.expenseId)">Edit</button>
+                        <button type="button" class="btn btn-danger" (click)="onDeleteExpense(expense.expenseId)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</section>

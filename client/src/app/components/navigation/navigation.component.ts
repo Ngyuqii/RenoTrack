@@ -12,11 +12,19 @@ export class NavigationComponent {
 
   constructor(public authService: AuthService, private router:Router) { }
 
+  //Link route to scheduler component
   schedulerRoute(){
     console.log(">>>Navigating.");
     this.router.navigate(['/scheduler']);
   }
 
+  //Link route to expense component
+  expenseRoute(){
+    console.log(">>>Navigating.");
+    this.router.navigate(['/expensetracker']);
+  }
+
+  //UserId logout
   logout() {
     this.authService.logoutUser();
   }

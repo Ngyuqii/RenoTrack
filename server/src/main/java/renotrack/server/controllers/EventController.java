@@ -31,7 +31,7 @@ public class EventController {
     private EventRepository eventRepo;
 
     //Retrieve all events matching the userId
-    @GetMapping("/{userId}")
+    @GetMapping(path="/{userId}")
     public ResponseEntity<String> getAllEvents(@PathVariable String userId) {
 
         List<Event> events = eventRepo.getAllEvents(userId);
@@ -53,7 +53,7 @@ public class EventController {
     }
 
     //Insert new event into database
-    @PostMapping("/{userId}")
+    @PostMapping(path="/{userId}")
     public ResponseEntity<String> createEvent(@PathVariable String userId, @RequestBody String event) {
 
         JsonObject userJO = Event.toJson(event);
@@ -67,7 +67,7 @@ public class EventController {
     }
 
     //Update event in database matching userId and eventId
-    @PutMapping("/{userId}/{eventId}")
+    @PutMapping(path="/{userId}/{eventId}")
     public ResponseEntity<String> updateEvent(@PathVariable String userId, @PathVariable int eventId, @RequestBody String event) {
         
         JsonObject userJO = Event.toJson(event);
@@ -81,7 +81,7 @@ public class EventController {
     }
 
     //Delete event in database matching userId and eventId
-    @DeleteMapping("/{userId}/{eventId}")
+    @DeleteMapping(path="/{userId}/{eventId}")
     public ResponseEntity<String> deleteEvent(@PathVariable String userId, @PathVariable int eventId) {
         int result = eventRepo.deleteEvent(userId, eventId);
         if(result == 0){

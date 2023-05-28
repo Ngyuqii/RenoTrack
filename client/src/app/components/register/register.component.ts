@@ -10,17 +10,17 @@ import { AuthService } from 'src/app/services/auth.service';
 
 export class RegisterComponent implements OnInit {
 
+  email = localStorage.getItem("userEmail");
   registerForm!: FormGroup;
 
   constructor(private authService: AuthService) { }
 
   //Initialize a FormGroup with validation
   ngOnInit() {
-    let email = localStorage.getItem("userEmail");
 
     this.registerForm = new FormGroup({
       userName: new FormControl('', [ Validators.required, Validators.minLength(2) ]),
-      userEmail: new FormControl(email),
+      userEmail: new FormControl(this.email),
       userPassword: new FormControl('', [ Validators.required, Validators.minLength(8) ]),
       confirmPassword: new FormControl('', [ Validators.required, Validators.minLength(8) ])
     });

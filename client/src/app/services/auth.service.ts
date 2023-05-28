@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { AlertService } from './alert.service';
+import { Router } from '@angular/router';
 import { User } from '../models';
 
 const SB_URL = "http://localhost:8080/api";
@@ -14,7 +15,7 @@ const SB_URL = "http://localhost:8080/api";
 
 export class AuthService {
 
-  constructor(private http: HttpClient, private alertService: AlertService) { }
+  constructor(private http: HttpClient, private alertService: AlertService, private router: Router) { }
 
   //Method to make a HTTP POST request to the server
   //Return response message to be displayed as alert or verificationCode to be set in localStorage
@@ -51,6 +52,7 @@ export class AuthService {
 
   //Method to make a HTTP POST request to the server
   //Return response message to be displayed as alert or userId to be set in localStorage
+  //User will be logged out after 30min
   loginUser(user: User) {
     console.log(">>>Login Details", user);
     firstValueFrom(this.http.post<any>(`${SB_URL}/login`, user)).then(response => {
@@ -61,6 +63,10 @@ export class AuthService {
       else {
         this.alertService.setMessage("Welcome back!");
         localStorage.setItem('userId', response.Msg);
+        setTimeout(() => {
+          localStorage.removeItem('userId');
+          this.router.navigate(['']);
+        }, 1800000);
       }
     }).catch(error => {
       console.log(error);

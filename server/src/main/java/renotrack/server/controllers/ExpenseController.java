@@ -31,7 +31,8 @@ public class ExpenseController {
     @Autowired
     private ExpenseService expenseSvc;
 
-    @GetMapping("/{userId}")
+    //Retrieve list of expenses for a userId
+    @GetMapping(path="/{userId}")
     public ResponseEntity<String> getAllExpenses(@PathVariable String userId) {
         List<Expense> expenses = expenseSvc.findAllExpenses(userId);
         if(expenses.isEmpty()){
@@ -48,7 +49,8 @@ public class ExpenseController {
         }   
     }
 
-    @GetMapping("/{userId}/{id}")
+    //Retrieve an expense of expenseId
+    @GetMapping(path="/{userId}/{expenseId}")
     public ResponseEntity<String> getExpenseById(@PathVariable String userId, @PathVariable int expenseId) {
         Expense expense = expenseSvc.findExpenseById(expenseId);
         JsonObject response = Json.createObjectBuilder()
@@ -57,32 +59,35 @@ public class ExpenseController {
         return ResponseEntity.ok(response.toString());
     }
 
-    @PostMapping("/{userId}")
+    //Create a new expense for a userId
+    @PostMapping(path="/create/{userId}")
     public ResponseEntity<String> createExpense(@PathVariable String userId, @RequestBody String expense) {
         JsonObject userJO = Expense.toJson(expense);
         Expense expenseObj = Expense.createExpense(userJO);
 
-        int result = expenseSvc.insertOrUpdateExpense(userId, expenseObj);
+        int result = expenseSvc.insertExpense(userId, expenseObj);
         if(result == 0){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping("/{userId}/{id}")
-    public ResponseEntity<String> updateExpense(@PathVariable String userId, @PathVariable int expenseId, @RequestBody String expense) {
+    //Update an existing expense of a expenseId
+    @PutMapping(path="/update/{expenseId}")
+    public ResponseEntity<String> updateExpense(@PathVariable int expenseId, @RequestBody String expense) {
         JsonObject userJO = Expense.toJson(expense);
         Expense expenseObj = Expense.createExpense(userJO);
         
-        int result = expenseSvc.insertOrUpdateExpense(userId, expenseObj);
+        int result = expenseSvc.updateExpense(expenseId, expenseObj);
         if(result == 0){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("{userId}/{id}")
-    public ResponseEntity<String> deleteExpense(@PathVariable String userId, @PathVariable int expenseId) {
+    //Delete an existing expense of a expenseId
+    @DeleteMapping(path="/delete/{expenseId}")
+    public ResponseEntity<String> deleteExpense(@PathVariable int expenseId) {
         int result = expenseSvc.deleteExpense(expenseId);
         if(result == 0){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -90,7 +95,8 @@ public class ExpenseController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/expenses/{userId}/sum/amount")
+    //Get sum of amount for a userId
+    @GetMapping(path="/{userId}/amountsum")
     public ResponseEntity<String> sumAmount(@PathVariable String userId) {
         float sum = expenseSvc.sumAmount(userId);
         JsonObject response = Json.createObjectBuilder()
@@ -99,7 +105,8 @@ public class ExpenseController {
         return ResponseEntity.ok(response.toString());
     }
 
-    @GetMapping("/expenses/{userId}/sum/payment")
+    //Get sum of payment for a userId
+    @GetMapping(path="/{userId}/paymentsum")
     public ResponseEntity<String> sumPayment(@PathVariable String userId) {
         float sum = expenseSvc.sumPayment(userId);
         JsonObject response = Json.createObjectBuilder()
@@ -108,7 +115,8 @@ public class ExpenseController {
         return ResponseEntity.ok(response.toString());
     }
 
-    @GetMapping("/expenses/{userId}/sum/balance")
+    //Get sum of balance for a userId
+    @GetMapping(path="/{userId}/balancesum")
     public ResponseEntity<String> sumBalance(@PathVariable String userId) {
         float sum = expenseSvc.sumBalance(userId);
         JsonObject response = Json.createObjectBuilder()
@@ -116,8 +124,9 @@ public class ExpenseController {
         .build();
         return ResponseEntity.ok(response.toString());
     }
-
-    @GetMapping("/expenses/{userId}/sum/category")
+    
+    //Get sum of amount per category for a userId
+    @GetMapping(path="/{userId}/amountsum/category")
     public ResponseEntity<String> sumAmountPerCategory(@PathVariable String userId) {
         List<CategorySum> catSum = expenseSvc.sumAmountPerCategory(userId);
         if(catSum.isEmpty()){

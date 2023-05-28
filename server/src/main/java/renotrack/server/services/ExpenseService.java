@@ -20,23 +20,22 @@ public class ExpenseService {
         return expenseRepo.findAllExpenses(userId);
     }
 
-    //Method to retrieve events by expenseId
+    //Method to retrieve expense by expenseId
     public Expense findExpenseById(int expenseId) {
         return expenseRepo.findExpenseById(expenseId);
     }
 
-    //Method to check if there is expenseId passed in Expense Object
-    //Insert or update expense in database
-    public int insertOrUpdateExpense(String userId, Expense expense) {
-        if (expense.getExpenseId() == 0) {
-            return expenseRepo.insertExpense(userId, expense);
-        }
-        else {
-            return expenseRepo.updateExpense(userId, expense.getExpenseId(), expense);
-        }
+    //Method to insert userId expense
+    public int insertExpense(String userId, Expense expense) {
+        return expenseRepo.insertExpense(userId, expense);
     }
 
-    //Method to delete expense from database
+    //Method to update expenseId expense
+    public int updateExpense(int expenseId, Expense expense) {
+        return expenseRepo.updateExpense(expenseId, expense);
+    }
+
+    //Method to delete expenseId expense
     public int deleteExpense(int expenseId) {
         return expenseRepo.deleteExpense(expenseId);
     }

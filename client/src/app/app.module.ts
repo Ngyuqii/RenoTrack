@@ -19,12 +19,16 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { SchedulerComponent } from './components/scheduler/scheduler.component';
+import { ExpenseComponent } from './components/expense/expense.component';
+import { CreateExpenseComponent } from './components/create-expense/create-expense.component';
+import { EditExpenseComponent } from './components/edit-expense/edit-expense.component';
 
 import { GoogleMapsService } from './services/google-maps.service';
 import { AuthService } from './services/auth.service';
 import { AlertService } from './services/alert.service';
 import { EventService } from './services/event.service';
 import { DayService, WeekService, MonthService, AgendaService } from '@syncfusion/ej2-angular-schedule';
+import { ExpenseService } from './services/expense.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,10 @@ import { DayService, WeekService, MonthService, AgendaService } from '@syncfusio
     VerifyEmailComponent,
     RegisterComponent,
     LoginComponent,
-    SchedulerComponent
+    SchedulerComponent,
+    ExpenseComponent,
+    CreateExpenseComponent,
+    EditExpenseComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +63,7 @@ import { DayService, WeekService, MonthService, AgendaService } from '@syncfusio
     AuthService,
     AlertService,
     EventService,
+    ExpenseService,
     DayService,
     WeekService,
     MonthService,

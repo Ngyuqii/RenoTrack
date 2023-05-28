@@ -12,7 +12,7 @@
                 <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#lookbook">Inspiration</a></li>
                 <li *ngIf="authService.isAuthenticated()"><a class="nav-link" (click)="logout()">Journal</a></li>
                 <li *ngIf="authService.isAuthenticated()"><a class="nav-link" (click)="schedulerRoute()">Scheduler</a></li>
-                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" (click)="logout()">Expenses</a></li>
+                <li *ngIf="authService.isAuthenticated()"><a class="nav-link" (click)="expenseRoute()">Expenses</a></li>
                 <li><a class="nav-link" href="#contact">Contact</a></li>
                 <li *ngIf="authService.isAuthenticated()"><a class="nav-link" href="#" (click)="logout()">Logout</a></li>
             </ul>

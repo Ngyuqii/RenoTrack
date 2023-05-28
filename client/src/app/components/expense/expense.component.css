@@ -1,0 +1,10 @@
+.border-table {
+    border: 2px solid #dee2e6;
+    border-collapse: collapse;
+    margin: 1.5rem;
+}
+
+.category-divider {
+    border-right: 2px solid #dee2e6;
+    padding-right: 10px;
+}

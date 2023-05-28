@@ -71,10 +71,10 @@ SELECT SUM(balance) FROM expenses WHERE user_id = ?;
 SELECT category, SUM(amount) AS total FROM expenses WHERE user_id = ? GROUP BY category;
 
 -- 3.3 Insert data into table
-INSERT INTO expenses (user_id, date, category, description, amount, payment, balance) VALUES (?, ?, ?, ?, ?, ?, ?)
+INSERT INTO expenses (user_id, date, category, business, description, amount, payment, balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
 
 -- 3.4 Update exisitng data in table
-UPDATE expenses SET user_id = ?, date = ?, category = ?, description = ?, amount = ?, payment = ?, balance = ? WHERE expense_id = ?;
+UPDATE expenses SET date = ?, category = ?, business = ?, description = ?, amount = ?, payment = ?, balance = ? WHERE expense_id = ?;
 
 -- 3.5 Delete data from table
 DELETE FROM expenses WHERE expense_id = ?;

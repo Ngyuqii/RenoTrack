@@ -8,3 +8,20 @@
     border-right: 2px solid #dee2e6;
     padding-right: 10px;
 }
+
+.empty-page {
+    background-image: url("src/assets/Images/Expense.jpg");
+    background-size: cover;
+    background-position: center;
+    padding-top: 18rem;
+    padding-bottom: 18rem;
+    text-align: center;
+    color: black;
+}
+
+.empty-font {
+    background-color: white;
+    opacity: 0.8;
+    padding-top: 1.8rem;
+    padding-bottom: 1.8rem;
+}

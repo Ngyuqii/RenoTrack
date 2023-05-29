@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Expense } from '../models';
 
-//const Expense_URL = "/api/expenses"
-const Expense_URL = "http://localhost:8080/api/expenses"
+const Expense_URL = "/api/expenses"
+//const Expense_URL = "http://localhost:8080/api/expenses"
 
 @Injectable({
   providedIn: 'root'
@@ -60,6 +60,15 @@ export class ExpenseService {
   getSumAmountPerCategory(userId: string): Observable<any> {
     return this.http.get<any>(`${Expense_URL}/${userId}/amountsum/category`).pipe(
       map((data: any) => data.Expenses));
+  }
+
+  //Data to be passed between components
+  private expenseId!: number;
+  getExpenseId(): number {
+    return this.expenseId;
+  }
+  setExpenseId(expenseId: number): void {
+    this.expenseId = expenseId;
   }
 
 }

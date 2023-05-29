@@ -58,19 +58,17 @@ export class ExpenseComponent implements OnInit {
       this.totalBalance = data['Total Balance'];
     });
   }
-  
-  onAddExpense(): void {
-    this.router.navigate(['expensetracker/create']);
-  }
 
   onEditExpense(expenseId: number): void {
-    this.router.navigate(['expensetracker/edit', expenseId]);
+    this.expenseService.setExpenseId(expenseId);
+    this.router.navigate(['expensetracker/edit']);
   }
 
   onDeleteExpense(expenseId: number): void {
     this.expenseService.deleteExpense(expenseId).subscribe(() => {
       this.getExpenses();
       this.getCategorySummaries();
+      window.location.reload();
     });
   }
 

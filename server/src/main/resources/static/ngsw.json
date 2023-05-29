@@ -1,0 +1,133 @@
+{
+  "configVersion": 1,
+  "timestamp": 1685334148864,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.45b58480499951ed.js",
+        "/manifest.webmanifest",
+        "/polyfills.4709fd955acb2242.js",
+        "/runtime.7ae29a296d479790.js",
+        "/scripts.b7cebc1258dbcca8.js",
+        "/styles.3258b3fa18e73184.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/Cover.16c4b25a1310491d.jpg",
+        "/Expense.a1b44331987c799e.jpg",
+        "/Unsplash.6c441af5d985635b.jpg",
+        "/assets/Images/Cover.jpg",
+        "/assets/Images/Expense.jpg",
+        "/assets/Images/LookBook_1.jpg",
+        "/assets/Images/LookBook_2.jpg",
+        "/assets/Images/LookBook_3.jpg",
+        "/assets/Images/LookBook_4.jpg",
+        "/assets/Images/LookBook_5.jpg",
+        "/assets/Images/LookBook_6.jpg",
+        "/assets/Images/LookBook_7.jpg",
+        "/assets/Images/LookBook_8.jpg",
+        "/assets/Images/LookBook_9.jpg",
+        "/assets/Images/MoodBoard_1.jpg",
+        "/assets/Images/MoodBoard_2.jpg",
+        "/assets/Images/MoodBoard_3.jpg",
+        "/assets/Images/MoodBoard_4.jpg",
+        "/assets/Images/MoodBoard_5.jpg",
+        "/assets/Images/MoodBoard_6.jpg",
+        "/assets/Images/RenoTrack_Logo.jpg",
+        "/assets/Images/Unsplash.jpg",
+        "/assets/Images/Welcome.jpg",
+        "/assets/icons/icon-180x180.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-512x512.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "unsplash-data",
+      "patterns": [
+        "http:\\/\\/localhost:8080\\/api\\/unsplash"
+      ],
+      "strategy": "freshness",
+      "maxSize": 24,
+      "maxAge": 86400000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/Cover.16c4b25a1310491d.jpg": "e80d759d49b4cdf04c954945be0c258857eb8d25",
+    "/Expense.a1b44331987c799e.jpg": "94b6aec87de25fb03e822fe42b57c4e96a6c0e4e",
+    "/Unsplash.6c441af5d985635b.jpg": "4181e4056a288bb50c6118f99d14a4466de26b17",
+    "/assets/Images/Cover.jpg": "e80d759d49b4cdf04c954945be0c258857eb8d25",
+    "/assets/Images/Expense.jpg": "94b6aec87de25fb03e822fe42b57c4e96a6c0e4e",
+    "/assets/Images/LookBook_1.jpg": "8d782ed0ce5fbe33138fc4669dc810f0c272b756",
+    "/assets/Images/LookBook_2.jpg": "0b9d22ac697d5047f40da2f0f76fef49fdd0871c",
+    "/assets/Images/LookBook_3.jpg": "114e69f8b3805aa83be212bea4218ce7a0518260",
+    "/assets/Images/LookBook_4.jpg": "4fa4ea4469046d86afab4c482211a9c376b5f69e",
+    "/assets/Images/LookBook_5.jpg": "d99b923fcb22ec1321a8bc745ccfd9afa989d7e5",
+    "/assets/Images/LookBook_6.jpg": "5fc09d7912b0ec093b2b4e3ce2141c8d0a273e6a",
+    "/assets/Images/LookBook_7.jpg": "e3565379cf54a9fde5e8315ea5b04ed54d8227b6",
+    "/assets/Images/LookBook_8.jpg": "13d1624942f29e916c45aa92d2dfb825013d3ad4",
+    "/assets/Images/LookBook_9.jpg": "a14e489e07d705260ca9991e23d2ad5e620dd025",
+    "/assets/Images/MoodBoard_1.jpg": "aeccd29756a5c2e1a2666c4e306a61fd9eae143d",
+    "/assets/Images/MoodBoard_2.jpg": "0ef7dcb177bde41533f5ca53ae8c1e62a6a4c790",
+    "/assets/Images/MoodBoard_3.jpg": "70a947c5837c1dcbc3c9322f87333b3dbc58e61a",
+    "/assets/Images/MoodBoard_4.jpg": "e7a214e2b9fb40f682e41fde86e8a7665b0e3fe4",
+    "/assets/Images/MoodBoard_5.jpg": "0973fb975f3dd6015ca6528d2893166a76f57b3d",
+    "/assets/Images/MoodBoard_6.jpg": "9f90694bb05487cfd1a832f0e66109ccbd07ee0d",
+    "/assets/Images/RenoTrack_Logo.jpg": "54c9b82cf813aaab9e75291306b4f3f185845070",
+    "/assets/Images/Unsplash.jpg": "4181e4056a288bb50c6118f99d14a4466de26b17",
+    "/assets/Images/Welcome.jpg": "3277c0e4ea41e8dadbee21ee530683a38508b0e0",
+    "/assets/icons/icon-180x180.png": "4d469c2e5af21a8bed0801060ed3ea839c7eecf8",
+    "/assets/icons/icon-192x192.png": "31c7086a30b31e07d991fd49106ed13cf10b0c93",
+    "/assets/icons/icon-512x512.png": "ffdb92c9996cbcb2eae96d58e43635883f1770fd",
+    "/favicon.ico": "5eafe9f2e2bdacf5c3a058c7cc09b9421c20bd2a",
+    "/index.html": "84ef2f631656cbb97f05d35ee331b2369ffc3649",
+    "/main.45b58480499951ed.js": "246d16dfd29fa70bef52af5c1426687c1314fc4e",
+    "/manifest.webmanifest": "6a86f15737b81d3e6c83166c000a4a289a32e0d9",
+    "/polyfills.4709fd955acb2242.js": "e84ccb31e4635abe840faa80b63e4b3d65ce4212",
+    "/runtime.7ae29a296d479790.js": "12cfdfd450f222fe2f70ddee2f8c81d4e8b4d5e7",
+    "/scripts.b7cebc1258dbcca8.js": "81c428b7b33ef85659fc075e18aa4c3545992f8d",
+    "/styles.3258b3fa18e73184.css": "b0eb9159299c0a55c5d017f22bedb196e9b70801"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

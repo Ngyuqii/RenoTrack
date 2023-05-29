@@ -1,38 +1,53 @@
 <div class="container">
-  <h2>Create Expense</h2>
-  <form [formGroup]="createExpenseForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="date">Date:</label>
-      <input type="date" id="date" formControlName="date" class="form-control">
-    </div>
+  
+  <form [formGroup]="createExpenseForm" (ngSubmit)="createExpense()">
+    <table>
+      <tr>
+        <td>Date:</td>
+        <td><input type="date" id="date" formControlName="date"></td>
+      </tr>
+      <tr>
+        <td>Category:</td>
+        <td>
+          <select id="category" formControlName="category">
+            <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Business:</td>
+        <td><input type="text" id="business" formControlName="business"></td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td><input type="text" id="description" formControlName="description"></td>
+      </tr>
+      <tr>
+        <td>Amount:</td>
+        <td><input type="number" id="amount" formControlName="amount"></td>
+      </tr>
+      <tr>
+        <td>Payment:</td>
+        <td><input type="number" id="payment" formControlName="payment"></td>
+        <td><button type="submit" [disabled]="invalidEntry()">Save</button></td>
+      </tr>
+    </table><br>
 
-    <div class="form-group">
-      <label for="category">Category:</label>
-      <select id="category" formControlName="category" class="form-control">
-        <option *ngFor="let category of categories" [value]="category">{{category}}</option>
-      </select>
+    <div class="error" *ngIf="invalidControl('date')">
+      Please key in a date
     </div>
+    <div class="error" *ngIf="invalidControl('category')">
+      Please select a category</div>
+    <div class="error" *ngIf="invalidControl('business')">
+      Business must be min 2 characters</div>
+    <div class="error" *ngIf="invalidControl('description')">
+      Description must be min 2 characters</div>
+    <div class="error" *ngIf="invalidControl('amount')">
+      Expense amount needs to be a minimum of 1cent</div>
+    <div class="error" *ngIf="invalidControl('payment')">
+      Please enter amount paid</div>
+    <div class="error" *ngIf="paymentLogic()">
+      Payment made cannot be greater than expense</div>
 
-    <div class="form-group">
-      <label for="business">Business:</label>
-      <input type="text" id="business" formControlName="business" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label for="description">Description:</label>
-      <input type="text" id="description" formControlName="description" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label for="amount">Amount:</label>
-      <input type="number" id="amount" formControlName="amount" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label for="payment">Payment:</label>
-      <input type="number" id="payment" formControlName="payment" class="form-control">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-</div>
+  

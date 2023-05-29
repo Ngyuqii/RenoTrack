@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -12,12 +12,12 @@ export class VerifyEmailComponent {
 
   emailForm!: FormGroup;
 
-  constructor(private authService: AuthService) { }
+  constructor(private fb: FormBuilder, private authService: AuthService) { }
 
   //Initialize a FormGroup with validation
-  ngOnInit() {
-    this.emailForm = new FormGroup({
-      userEmail: new FormControl('', [ Validators.required, Validators.email ]),
+  ngOnInit() : void {
+    this.emailForm = this.fb.group({
+      userEmail: this.fb.control('', [ Validators.required, Validators.email ]),
     });
   }
 

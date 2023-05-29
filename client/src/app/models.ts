@@ -18,7 +18,7 @@ export interface Event {
     Description?: string;
     Location?: string;
     googleCalendarUrl?: string;
-  }
+}
 
 export interface Expense {
   expenseId: number;

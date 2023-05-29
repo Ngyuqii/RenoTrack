@@ -13,8 +13,8 @@ export class SchedulerComponent implements OnInit {
 
   public setView: View = "Month"
 
-  public data!: Event[];  // the events displayed on the scheduler
   public userId!: string;
+  public data!: Event[];  //The events displayed on the scheduler
 
   constructor(private eventService: EventService) { }
 
@@ -32,6 +32,8 @@ export class SchedulerComponent implements OnInit {
       });
   }
 
+  //Event CRUD and pass to database
+  //Option to add to Google Calendar for new event
   onActionBegin(args: { [key: string]: Object }): void {
     if (args['requestType'] === 'eventCreate' || args['requestType'] === 'eventChange') {
       let event: Event = args['data'] instanceof Array ? args['data'][0] : args['data'];

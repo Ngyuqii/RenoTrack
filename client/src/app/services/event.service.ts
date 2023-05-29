@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Event } from '../models';
 
-const Scheduler_URL = "/api/events"
-//const Scheduler_URL = "http://localhost:8080/api/events"
+// const Scheduler_URL = "/api/events"
+const Scheduler_URL = "http://localhost:8080/api/events"
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,16 @@ export class EventService {
 
   getEvents(userId: string): Observable<Event[]> {
     return this.http.get(`${Scheduler_URL}/${userId}`, {responseType: 'text'})
-      .pipe(map((data: string) => JSON.parse(data).Events));
+      .pipe(map((data: string) => {
+        const parsedData = JSON.parse(data);
+        if (parsedData && parsedData.Events) {
+          return parsedData.Events;
+        }
+        else {
+          return [];
+        }
+      })
+    );
   }
   
   createEvent(userId: string, event: Event): Observable<Object> {

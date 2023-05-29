@@ -16,7 +16,8 @@ export class RegisterComponent implements OnInit {
 
   //Initialize a FormGroup with validation
   ngOnInit(): void {
-    const email = localStorage.getItem("userEmail");
+
+    const email = this.authService.getUserEmail();
 
     this.registerForm = this.fb.group({
       userName: this.fb.control('', [ Validators.required, Validators.minLength(2) ]),

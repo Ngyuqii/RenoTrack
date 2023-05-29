@@ -114,6 +114,6 @@ public class Event {
         e.setDescription(rs.getString("description"));
         e.setLocation(rs.getString("location"));
         return e;
-     }
+    }
    
 }

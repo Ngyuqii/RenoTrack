@@ -33,9 +33,9 @@ export class VerifyEmailComponent {
     const email = this.emailForm.value.userEmail;
     localStorage.setItem("userEmail", email)
     this.authService.verifyEmail(email);
+    this.authService.setUserEmail(email);
     setTimeout(() => {
       this.emailForm.reset();
-      localStorage.removeItem("userEmail");
     }, 180000);
   }
 

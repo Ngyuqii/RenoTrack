@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 
 export class MainComponent implements OnInit {
 
+  email!: string;
   enteredCode!: string;
   message: string = '';
 
@@ -24,21 +25,9 @@ export class MainComponent implements OnInit {
 
   //Check if user entered code is equal to system generated code
   matchCode() {
-    const otpCode = localStorage.getItem("code");
-    
-    if (this.enteredCode != otpCode) {
-      this.enteredCode = "";
-      this.alertService.setMessage("OTP does not match");
-    }
-    else {
-      this.enteredCode = "";
-      localStorage.setItem("code", "verified")
-      this.alertService.setMessage("Email verified");
-      //Data to be cleared after 3min
-      setTimeout(() => {
-        this.clearData();
-      }, 180000);
-    }
+    this.email = this.authService.getUserEmail();
+    this.authService.verifyEmailOTP(this.email, this.enteredCode);
+    this.enteredCode = "";
   }
 
   isEmailEntered() {

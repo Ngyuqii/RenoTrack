@@ -23,16 +23,38 @@ public class AuthController {
     @Autowired
     private UserService userSvc;
 
-    //Email verification
+    //Email verification part 1
     @PostMapping(path="/verify")
     public ResponseEntity<String> emailVerification(@RequestBody String email) {
         
         System.out.printf(">>>User email: %s /n", email);
 
         try {
-            String code = userSvc.verifyEmail(email);
+            String result = userSvc.verifyEmail(email);
             JsonObject response = Json.createObjectBuilder()
-            .add("Msg", code)
+            .add("Msg", result)
+            .build();
+            return ResponseEntity.ok(response.toString());
+        }
+        catch (Exception e){
+            return ResponseEntity.ok(e.toString());
+        }
+    }
+
+    //Email verification part 2
+    @PostMapping(path="/verificationCode")
+    public ResponseEntity<String> emailVerificationCode(@RequestBody String body) {
+        
+        System.out.printf(">>>User email and OTP: %s /n", body);
+
+        JsonObject bodyJO = User.toJson(body);
+        String email = bodyJO.getString("userEmail");
+        String OTP = bodyJO.getString("userOTP");
+
+        try {
+            String result = userSvc.verifyEmailOTP(email, OTP);
+            JsonObject response = Json.createObjectBuilder()
+            .add("Msg", result)
             .build();
             return ResponseEntity.ok(response.toString());
         }

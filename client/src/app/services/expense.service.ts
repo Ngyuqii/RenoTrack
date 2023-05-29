@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Expense } from '../models';
 
-const Expense_URL = "/api/expenses"
-//const Expense_URL = "http://localhost:8080/api/expenses"
+// const Expense_URL = "/api/expenses"
+const Expense_URL = "http://localhost:8080/api/expenses"
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,14 @@ export class ExpenseService {
   //Retrieve list of expenses for a userId
   getExpenses(userId: string): Observable<Expense[]> {
     return this.http.get(`${Expense_URL}/${userId}`).pipe(
-      map((data: any) => data.Expenses)
+      map((data: any) => {
+        if (data && data.Expenses) {
+          return data.Expenses;
+        }
+        else {
+          return [];
+        }
+      })
     );
   }
 
@@ -59,7 +66,15 @@ export class ExpenseService {
   //Get sum of amount per category for a userId
   getSumAmountPerCategory(userId: string): Observable<any> {
     return this.http.get<any>(`${Expense_URL}/${userId}/amountsum/category`).pipe(
-      map((data: any) => data.Expenses));
+      map((data: any) => {
+        if (data && data.Expenses) {
+          return data.Expenses;
+        }
+        else {
+          return [];
+        }
+      })
+    );
   }
 
   //Data to be passed between components

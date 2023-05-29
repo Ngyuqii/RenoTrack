@@ -38,12 +38,12 @@ public class CategorySum {
                 .build();
     }
 
-     //Create CategorySum Object from RowSet Object
-     public static CategorySum createCatSumFromRowSet(SqlRowSet rs) {
+    //Create CategorySum Object from RowSet Object
+    public static CategorySum createCatSumFromRowSet(SqlRowSet rs) {
         CategorySum c = new CategorySum();
         c.setCategory(rs.getString("category"));
         c.setSum(rs.getFloat("total"));
         return c;
-     }
+    }
     
 }

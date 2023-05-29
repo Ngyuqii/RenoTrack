@@ -5,8 +5,8 @@ import { AlertService } from './alert.service';
 import { Router } from '@angular/router';
 import { User } from '../models';
 
-const SB_URL = "/api";
-//const SB_URL = "http://localhost:8080/api";
+// const SB_URL = "/api";
+const SB_URL = "http://localhost:8080/api";
 
 @Injectable({
   providedIn: 'root'
@@ -17,21 +17,38 @@ export class AuthService {
   constructor(private http: HttpClient, private alertService: AlertService, private router: Router) { }
 
   //Method to make a HTTP POST request to the server
-  //Return response message to be displayed as alert or verificationCode to be set in localStorage
-  //OTP only valid for 3min
+  //Return response message to be displayed as alert
   verifyEmail(email: String) {
-    console.log(">>>User Email", email);
     firstValueFrom(this.http.post<any>(`${SB_URL}/verify`, email)).then(response => {
       if (response.Msg == "Email already exists") {
           this.alertService.setMessage(response.Msg);
           localStorage.removeItem("userEmail");
       }
       else {
-        this.alertService.setMessage("A verification code has been sent to your email");
-        localStorage.setItem("code", response.Msg);
+        this.alertService.setMessage(response.Msg);
         setTimeout (() => {
-          localStorage.removeItem("code");
+          localStorage.removeItem("userEmail");
         }, 180000);
+      }
+    }).catch(error => {
+      console.log(error);
+    });
+  }
+
+  //Method to make a HTTP POST request to the server
+  //Return response message to be displayed as alert
+  verifyEmailOTP(email: String, OTP: String) {
+    const body = { "userEmail": email, "userOTP": OTP };
+    firstValueFrom(this.http.post<any>(`${SB_URL}/verificationCode`, body)).then(response => {
+      if (response.Msg == "Email verified") {
+          this.alertService.setMessage(response.Msg);
+          localStorage.setItem("code", "verified");
+          setTimeout (() => {
+            localStorage.removeItem("code");
+          }, 60000);
+      }
+      else {
+        this.alertService.setMessage(response.Msg);
       }
     }).catch(error => {
       console.log(error);
@@ -53,7 +70,6 @@ export class AuthService {
   //Return response message to be displayed as alert or userId to be set in localStorage
   //User will be logged out after 30min
   loginUser(user: User) {
-    console.log(">>>Login Details", user);
     firstValueFrom(this.http.post<any>(`${SB_URL}/login`, user)).then(response => {
       if (response.Msg == "Authentication failed. Please try again."
         || response.Msg == "Email not found. Please register your account.") {
@@ -78,6 +94,15 @@ export class AuthService {
 
   logoutUser() {
     localStorage.removeItem('userId');
+  }
+
+  //Data to be passed between components
+  private userEmail!: string;
+  getUserEmail(): string {
+    return this.userEmail;
+  }
+  setUserEmail(userEmail: string): void {
+    this.userEmail = userEmail;
   }
  
 }

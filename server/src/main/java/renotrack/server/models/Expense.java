@@ -123,8 +123,8 @@ public class Expense {
                 .build();
     }
 
-     //Create Expense Object from RowSet Object
-     public static Expense createExpenseFromRowSet(SqlRowSet rs) {
+    //Create Expense Object from RowSet Object
+    public static Expense createExpenseFromRowSet(SqlRowSet rs) {
         Expense e = new Expense();
         e.setExpenseId(rs.getInt("expense_id"));
         e.setDate(rs.getDate("date").toLocalDate());
@@ -135,6 +135,6 @@ public class Expense {
         e.setPayment(rs.getFloat("payment"));
         e.setBalance(rs.getFloat("balance"));
         return e;
-     }
+    }
 
 }

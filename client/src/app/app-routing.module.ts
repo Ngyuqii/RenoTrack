@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:'unsplash/:search', component: DisplayUnsplashComponent}, //localhost:4200/unsplash/{search}
   {path:'scheduler', component: SchedulerComponent}, //localhost:4200/scheduler
   {path:'expensetracker', component: ExpenseComponent}, //localhost:4200/expensetracker
-  {path:'expensetracker/edit', component: EditExpenseComponent }, 
+  {path:'expensetracker/edit', component: EditExpenseComponent }, //localhost:4200/expensetracker/edit
   {path: '**', redirectTo: '/', pathMatch:"full"} //redirect to localhost:4200
 ];
 

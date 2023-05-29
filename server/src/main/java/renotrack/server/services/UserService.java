@@ -7,6 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import renotrack.server.models.User;
+import renotrack.server.repositories.EmailVerificationRepository;
 import renotrack.server.repositories.UserRepository;
 
 @Service
@@ -16,10 +17,13 @@ public class UserService {
     private UserRepository userRepo;
 
     @Autowired
+    private EmailVerificationRepository emailVerificationRepo;
+
+    @Autowired
     private MailService mailSvc;
 
     //Method to verify new user email if not already existing
-    //1. Generate a random 6 character verificationCode
+    //1. Generate a random 6 character verificationCode and save in Redis
     //2. Send email with verification code to new user
     public String verifyEmail(String userEmail) {
         User registeredUser = userRepo.findUserByEmail(userEmail);
@@ -28,8 +32,25 @@ public class UserService {
         }
         else {
             String verificationCode = UUID.randomUUID().toString().substring(0, 6);
+            emailVerificationRepo.saveToRedis(userEmail, verificationCode);
             mailSvc.sendVerEmail(userEmail, verificationCode);
-            return verificationCode;
+            return "A verification code has been sent to your email";
+        }
+    }
+
+    //Method to verify new user email using verificationCode
+    public String verifyEmailOTP(String userEmail, String OTP) {
+        String verificationCode = emailVerificationRepo.getFromRedis(userEmail);
+        if(verificationCode != null) {
+            if (verificationCode.equals(OTP)) {
+                return "Email verified";
+            }
+            else {
+                return "OTP does not match";
+            }
+        }
+        else {
+            return "Verification error";
         }
     }
 

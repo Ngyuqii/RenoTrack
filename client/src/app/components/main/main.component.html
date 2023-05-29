@@ -50,7 +50,7 @@
         <div class="modal-header bg-black">
             <img src="assets/Images/RenoTrack_Logo.jpg" alt="Logo" width="70%"/>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" *ngIf="email != undefined">
           <app-register></app-register>
           <div class="alert" [ngClass]="{'alert-primary': message, 'alert-light': !message}">
             <span>{{ message }}</span></div>
@@ -155,7 +155,7 @@
                     </p>
                 </h6>
             </div>
-            <div class="col-md-6 d-flex flex-column justify-content-center">
+            <div class="col-md-6 col-sm-4 d-flex flex-column justify-content-center">
                 <app-map></app-map>
             </div>
         </div>
@@ -166,7 +166,7 @@
 <footer class="footer py-4">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-4 text-lg-start">Copyright &copy; 2023</div>
+            <div class="col-lg-4 text-lg-start">Copyright &copy; 2023 www.renotrackr.com</div>
             <div class="col-lg-4 text-lg-end">
                 <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
                 <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>

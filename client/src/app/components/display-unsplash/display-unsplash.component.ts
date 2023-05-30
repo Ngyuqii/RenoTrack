@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Unsplash } from 'src/app/models';
+import { Inspiration, Unsplash } from 'src/app/models';
+import { AlertService } from 'src/app/services/alert.service';
+import { InspoService } from 'src/app/services/inspo.service';
 import { UnsplashService } from 'src/app/services/unsplash.service';
 
 @Component({
@@ -14,10 +16,13 @@ export class DisplayUnsplashComponent implements OnInit, OnDestroy {
 
   search = "";
   param$!: Subscription;
-
   unsplashImg$!: Promise<Unsplash[]>;
+  
+  userId = localStorage.getItem('userId') || "";
+  message: string = '';
 
-  constructor(private unsplashSvc: UnsplashService, private activatedRoute: ActivatedRoute) { }
+  constructor(private unsplashSvc: UnsplashService, private inspoSvc: InspoService, private alertSvc: AlertService, 
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -37,11 +42,26 @@ export class DisplayUnsplashComponent implements OnInit, OnDestroy {
       }
     )
 
+    //Subscribe to the message observable from the alertService
+    this.alertSvc.message.subscribe((message) => {
+      this.message = message;
+    });
+
+  }
+
+  //Save imageUrl to database
+  saveInspo(imageUrl: string): void {
+    let newInspo: Inspiration = {
+      inspoId: 0,
+      imageUrl: imageUrl
+    };
+    this.inspoSvc.createInspo(this.userId, newInspo).subscribe();
+    this.alertSvc.setMessage("Image added to your collection!");
   }
 
   //Unsubscribe to observable
   ngOnDestroy(): void {
     this.param$.unsubscribe();
   }
-
+  
 }

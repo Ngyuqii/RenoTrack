@@ -34,8 +34,8 @@ public class MailService {
     <br>Get started with the following features.</p><br>
     <img src="https://zameenblog.s3.amazonaws.com/blog/wp-content/uploads/2015/01/How-to-renovate-a-bathroom-Cover-13-03.jpg" width=450px>
     <div>
-        <p><b>Photo Journal</b>
-        <br>Upload photos of your renovation progress here. Your photo journal serves as a visual documentation of your renovation progress and experiences, capturing moments and memories through photographs.</p>
+        <p><b>Inspiration</b>
+        <br>Save unsplash images that inspire you here! Your inspiration album serves as a visual documentation of your preferences, capturing ideas and concepts for your renovation project.</p>
         <p><b>Scheduler</b>
         <br>Plan, organize, and manage your renovation timeline. A scheduler helps you organize and schedule tasks, collaborate with external parties, and is a reminder of key milestones, ensuring that you stay on track.</br>
         <p><b>Expense Tracker</b>

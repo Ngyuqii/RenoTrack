@@ -13,6 +13,12 @@ export class NavigationComponent {
   constructor(public authService: AuthService, private router:Router) { }
 
   //Link route to scheduler component
+  inspirationRoute(){
+    console.log(">>>Navigating.");
+    this.router.navigate(['/inspiration']);
+  }
+
+  //Link route to scheduler component
   schedulerRoute(){
     console.log(">>>Navigating.");
     this.router.navigate(['/scheduler']);

@@ -10,6 +10,11 @@ export interface User {
     userPassword: string;
 }
 
+export interface Inspiration {
+  inspoId: number;
+  imageUrl: string;
+}
+
 export interface Event {
     eventId: number;
     Subject: string;

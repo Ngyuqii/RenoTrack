@@ -30,6 +30,7 @@ import { AlertService } from './services/alert.service';
 import { EventService } from './services/event.service';
 import { DayService, WeekService, MonthService, AgendaService } from '@syncfusion/ej2-angular-schedule';
 import { ExpenseService } from './services/expense.service';
+import { InspirationComponent } from './components/inspiration/inspiration.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ExpenseService } from './services/expense.service';
     SchedulerComponent,
     ExpenseComponent,
     CreateExpenseComponent,
-    EditExpenseComponent
+    EditExpenseComponent,
+    InspirationComponent
   ],
   imports: [
     BrowserModule,

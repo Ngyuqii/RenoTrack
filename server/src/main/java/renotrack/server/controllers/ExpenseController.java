@@ -62,8 +62,8 @@ public class ExpenseController {
     //Create a new expense for a userId
     @PostMapping(path="/create/{userId}")
     public ResponseEntity<String> createExpense(@PathVariable String userId, @RequestBody String expense) {
-        JsonObject userJO = Expense.toJson(expense);
-        Expense expenseObj = Expense.createExpense(userJO);
+        JsonObject expenseJO = Expense.toJson(expense);
+        Expense expenseObj = Expense.createExpense(expenseJO);
 
         int result = expenseSvc.insertExpense(userId, expenseObj);
         if(result == 0){
@@ -75,8 +75,8 @@ public class ExpenseController {
     //Update an existing expense of a expenseId
     @PutMapping(path="/update/{expenseId}")
     public ResponseEntity<String> updateExpense(@PathVariable int expenseId, @RequestBody String expense) {
-        JsonObject userJO = Expense.toJson(expense);
-        Expense expenseObj = Expense.createExpense(userJO);
+        JsonObject expenseJO = Expense.toJson(expense);
+        Expense expenseObj = Expense.createExpense(expenseJO);
         
         int result = expenseSvc.updateExpense(expenseId, expenseObj);
         if(result == 0){

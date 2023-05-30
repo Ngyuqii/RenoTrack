@@ -78,3 +78,21 @@ UPDATE expenses SET date = ?, category = ?, business = ?, description = ?, amoun
 
 -- 3.5 Delete data from table
 DELETE FROM expenses WHERE expense_id = ?;
+
+-- Inspirations Table
+-- 4.1 Create a table
+CREATE TABLE inspirations (
+  inspo_id INT NOT NULL AUTO_INCREMENT,
+  user_id varchar(50) NOT NULL,
+  imageUrl VARCHAR(255) NOT NULL,
+  CONSTRAINT pkid PRIMARY KEY(inspo_id)
+);
+
+-- 4.2 Retrieve data from table
+SELECT * FROM inspirations WHERE user_id = ?;
+
+-- 4.3 Insert data into table
+INSERT INTO inspirations (user_id, imageUrl) VALUES (?, ?);
+
+-- 4.4 Delete data from table
+DELETE FROM inspirations WHERE inspo_id = ?;

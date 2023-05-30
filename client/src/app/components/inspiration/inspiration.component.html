@@ -1,0 +1,57 @@
+<!-- Navigation Toolbar -->
+<app-navigation></app-navigation>
+
+<!-- Inspiration -->
+<section class="page-section" style="padding-bottom: 2rem;">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Inspiration</h2>
+            <h3 class="section-subheading text-muted">This is your unsplash inspiration album. Search for ideas and concepts you would like to see in your home.</h3>
+        </div>
+    </div>
+</section>
+
+<!-- Display Inspirations -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 position-relative" *ngFor="let ins of inspo; let i = index">
+            <a data-bs-toggle="modal" href="#gridModal{{i}}">
+                <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top img-cover" [src]="ins.imageUrl">
+                </div>
+            </a>
+            <button class="btn btn-danger position-absolute top-0 end-0 m-3" (click)="deleteInspo(ins.inspoId)">Delete</button>
+            <div class="unsplash-modal modal fade" id="gridModal{{i}}" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="close-modal" data-bs-dismiss="modal">Close</div>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <img class="img-fluid d-block mx-auto" [src]="ins.imageUrl"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals -->
+<div class="container">
+<div class="row">
+    <div class="col-md-4" *ngFor="let i of inspo">
+        <div class="card mb-4 shadow-sm">
+            <img class="card-img-top img-cover" [src]="i.imageUrl" alt="Inspiration image">
+            <button class="btn btn-danger position-absolute top-0 end-0 m-3" (click)="deleteInspo(i.inspoId)">Delete</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- No Content -->
+<div class="container empty-page" *ngIf="!inspo || inspo.length === 0">
+    <div class="empty-font">
+      <h3>What inspires you?</h3>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1685390213383,
+  "timestamp": 1685913911399,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,12 +13,12 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.5c04e75b7eb5fce1.js",
+        "/main.26bca37c2eabd70b.js",
         "/manifest.webmanifest",
         "/polyfills.4709fd955acb2242.js",
         "/runtime.7ae29a296d479790.js",
         "/scripts.b7cebc1258dbcca8.js",
-        "/styles.3258b3fa18e73184.css"
+        "/styles.d71420703482b0b2.css"
       ],
       "patterns": []
     },
@@ -32,9 +32,11 @@
       "urls": [
         "/Cover.16c4b25a1310491d.jpg",
         "/Expense.a1b44331987c799e.jpg",
+        "/Inspiration.ae73988688339153.jpg",
         "/Unsplash.6c441af5d985635b.jpg",
         "/assets/Images/Cover.jpg",
         "/assets/Images/Expense.jpg",
+        "/assets/Images/Inspiration.jpg",
         "/assets/Images/LookBook_1.jpg",
         "/assets/Images/LookBook_2.jpg",
         "/assets/Images/LookBook_3.jpg",
@@ -52,7 +54,6 @@
         "/assets/Images/MoodBoard_6.jpg",
         "/assets/Images/RenoTrack_Logo.jpg",
         "/assets/Images/Unsplash.jpg",
-        "/assets/Images/Welcome.jpg",
         "/assets/icons/icon-180x180.png",
         "/assets/icons/icon-192x192.png",
         "/assets/icons/icon-512x512.png"
@@ -78,9 +79,11 @@
   "hashTable": {
     "/Cover.16c4b25a1310491d.jpg": "e80d759d49b4cdf04c954945be0c258857eb8d25",
     "/Expense.a1b44331987c799e.jpg": "94b6aec87de25fb03e822fe42b57c4e96a6c0e4e",
+    "/Inspiration.ae73988688339153.jpg": "3277c0e4ea41e8dadbee21ee530683a38508b0e0",
     "/Unsplash.6c441af5d985635b.jpg": "4181e4056a288bb50c6118f99d14a4466de26b17",
     "/assets/Images/Cover.jpg": "e80d759d49b4cdf04c954945be0c258857eb8d25",
     "/assets/Images/Expense.jpg": "94b6aec87de25fb03e822fe42b57c4e96a6c0e4e",
+    "/assets/Images/Inspiration.jpg": "3277c0e4ea41e8dadbee21ee530683a38508b0e0",
     "/assets/Images/LookBook_1.jpg": "8d782ed0ce5fbe33138fc4669dc810f0c272b756",
     "/assets/Images/LookBook_2.jpg": "0b9d22ac697d5047f40da2f0f76fef49fdd0871c",
     "/assets/Images/LookBook_3.jpg": "114e69f8b3805aa83be212bea4218ce7a0518260",
@@ -98,18 +101,17 @@
     "/assets/Images/MoodBoard_6.jpg": "9f90694bb05487cfd1a832f0e66109ccbd07ee0d",
     "/assets/Images/RenoTrack_Logo.jpg": "54c9b82cf813aaab9e75291306b4f3f185845070",
     "/assets/Images/Unsplash.jpg": "4181e4056a288bb50c6118f99d14a4466de26b17",
-    "/assets/Images/Welcome.jpg": "3277c0e4ea41e8dadbee21ee530683a38508b0e0",
     "/assets/icons/icon-180x180.png": "4d469c2e5af21a8bed0801060ed3ea839c7eecf8",
     "/assets/icons/icon-192x192.png": "31c7086a30b31e07d991fd49106ed13cf10b0c93",
     "/assets/icons/icon-512x512.png": "ffdb92c9996cbcb2eae96d58e43635883f1770fd",
     "/favicon.ico": "5eafe9f2e2bdacf5c3a058c7cc09b9421c20bd2a",
-    "/index.html": "7be4024c0b8f80b7e0a3ddc7b8dfa1c2524a3668",
-    "/main.5c04e75b7eb5fce1.js": "f5310fe824add456eb9e823d76de9807268c56aa",
+    "/index.html": "05be6611349deae1e6c0cb34372bc830de5bbfa2",
+    "/main.26bca37c2eabd70b.js": "f7130425f0803f8cb32078130c03f0814c7b0f9d",
     "/manifest.webmanifest": "6a86f15737b81d3e6c83166c000a4a289a32e0d9",
     "/polyfills.4709fd955acb2242.js": "e84ccb31e4635abe840faa80b63e4b3d65ce4212",
     "/runtime.7ae29a296d479790.js": "12cfdfd450f222fe2f70ddee2f8c81d4e8b4d5e7",
     "/scripts.b7cebc1258dbcca8.js": "81c428b7b33ef85659fc075e18aa4c3545992f8d",
-    "/styles.3258b3fa18e73184.css": "b0eb9159299c0a55c5d017f22bedb196e9b70801"
+    "/styles.d71420703482b0b2.css": "6d61c08fa4ce731631dceb38a61e3fabef44e274"
   },
   "navigationUrls": [
     {

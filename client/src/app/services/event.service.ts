@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Event } from '../models';
 
-// const Scheduler_URL = "/api/events"
-const Scheduler_URL = "http://localhost:8080/api/events"
+const Scheduler_URL = "/api/events"
+// const Scheduler_URL = "http://localhost:8080/api/events"
 
 @Injectable({
   providedIn: 'root'

@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Inspiration } from '../models';
 
-// const Inspo_URL = "/api/inspirations"
-const Inspo_URL = "http://localhost:8080/api/inspirations"
+const Inspo_URL = "/api/inspirations"
+// const Inspo_URL = "http://localhost:8080/api/inspirations"
 
 @Injectable({
   providedIn: 'root'

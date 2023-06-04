@@ -1,5 +1,41 @@
+/* Unsplash image */
+.img-cover {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+/* Unsplash Modals */
+.unsplash-modal .modal-content {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+
+.unsplash-modal .modal-content img {
+  margin: 1rem;
+} 
+
+.unsplash-modal .modal-content .caption::first-letter {
+    text-transform: uppercase;
+}
+
+.unsplash-modal .close-modal {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.unsplash-modal .close-modal:hover {
+  opacity: 0.3;
+}
+
 .empty-page {
-    background-image: url("src/assets/Images/Welcome.jpg");
+    background-image: url("src/assets/Images/Inspiration.jpg");
     background-size: cover;
     background-position: center;
     padding-top: 18rem;

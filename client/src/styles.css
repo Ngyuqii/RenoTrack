@@ -6,7 +6,10 @@ body {
 }
 
 .page-section {
-  padding: 6rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .page-section h2.section-heading {

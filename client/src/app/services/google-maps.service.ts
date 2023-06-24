@@ -15,7 +15,8 @@ export class GoogleMapsService {
     script.type = 'text/javascript';
     script.async = true;
     script.defer = true;
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAkqmbpY6D5aEuHRHaqQ0JgCWpEkhZhEzE`;
+    //Replace with your API Key
+    script.src = `https://maps.googleapis.com/maps/api/js?key={API_KEY}`;
 
     this.promise = new Promise<void>(resolve => {
       script.onload = (): void => {

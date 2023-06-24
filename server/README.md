@@ -1,3 +1,8 @@
+### Run Server
+- Input values in application properties
+- Create MySQL database according to schema.sql
+- mvn spring-boot:run (to use with client)
+
 ### Unsplash API Call and Response
 URL = "https://api.unsplash.com/search/photos?&query=living%20room&client_id={API_KEY}"
 ```

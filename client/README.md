@@ -1,6 +1,11 @@
-### API Call and Response
+### Run Client
+- npm install
+- Input GoogleMaps API Key
+- ng serve (run the server before client, then access on http://localhost:4200)
+- Alternatively ng build (copy the client dist folder files into server static resource to run on server, access on http://localhost:8080/)
 
-1. GET Unsplash
+### API Call and Response
+GET Unsplash
 URL = "http://localhost:8080/api/unsplash?query=livingroom"
 ```
 [
